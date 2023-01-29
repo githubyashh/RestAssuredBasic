@@ -14,13 +14,13 @@ import org.hamcrest.Matchers;
 import io.restassured.RestAssured;
 
 
-public class getRequest {
+public class getRequest{
 	 public static APIToken enter= new APIToken();
 
 	@BeforeTest
 	public void preTest() {
 		RestAssured.baseURI="https://api.trello.com";
-		RestAssured.basePath="/1/boards/63d48edbbbb69e10b7926515";
+		RestAssured.basePath="/1/boards/{id}";
 	}
 	
 	@Test
@@ -28,12 +28,13 @@ public class getRequest {
 		given()	
 			.queryParam("key", enter.key)
 			.queryParam("token", enter.token)
+			.pathParam("id", "63d5f904cadfc71dc4a81958")
 			
 		.when()
 			.get()
 		.then()
 			.statusCode(200).and()
-			.assertThat().body("name",equalTo("YashRestAssured1"))
+			.assertThat().body("name",equalTo("RestAssuredSelenium200"))
 			.time(Matchers.lessThan(2000L))
 			.log().all();
 		

@@ -20,7 +20,7 @@ public class deleteRequest {
 	public static void putenter() {
 	
 		RestAssured.baseURI="https://api.trello.com";
-		RestAssured.basePath="/1/boards/63d5112e377f5f17fbf6321b";
+		RestAssured.basePath="/1/boards/{id}";
 	}
 	
 	
@@ -29,6 +29,7 @@ public class deleteRequest {
 		given()
 		.queryParam("key", enter.key )
 		.queryParam("token", enter.token )
+		.pathParam("id", "63d5f904cadfc71dc4a81958")
 		.when()
 			.delete()
 		.then()

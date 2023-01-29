@@ -28,14 +28,14 @@ public class postRequest {
 		
 		.queryParam("key", enter.key )
 		.queryParam("token", enter.token)
-		.queryParam("name", "RestAssuredSelenium2")
+		.queryParam("name", "RestAssuredSelenium200")
 			.contentType("application/json")
 		.when()
 			.post()
 		.then()
 			.statusCode(200)
 			.statusLine("HTTP/1.1 200 OK")
-			.assertThat().body("name",equalTo("RestAssuredSelenium2"))
+			.assertThat().body("name",equalTo("RestAssuredSelenium200"))
 			.log().all();
 			
 		

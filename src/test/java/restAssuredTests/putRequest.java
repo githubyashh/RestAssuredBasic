@@ -25,11 +25,12 @@ public class putRequest {
 		public void postreq() {
 		
 			RestAssured.baseURI="https://api.trello.com";
-			RestAssured.basePath="/1/boards/63d48edbbbb69e10b7926515";
+			RestAssured.basePath="/1/boards/{id}";
 			
 			given()
 				.queryParam("key", enter.key)
 				.queryParam("token", enter.token)
+				.pathParam("id", "63d5f904cadfc71dc4a81958")
 				.body(map)
 				.contentType("application/json")
 			.when()
